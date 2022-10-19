@@ -160,6 +160,7 @@ end
             barrier(;pids=pids)
             if myid() == pstart
                 bk[j1,j2,j3] = sum(dr)/(bxmesh*bymesh*bzmesh)
+                write(bkf, "$kx $ky $kz $(bk[j1,j2,j3]) \n")
             end
             barrier(;pids=pids)
         end
